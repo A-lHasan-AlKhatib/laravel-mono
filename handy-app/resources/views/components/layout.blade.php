@@ -141,6 +141,5 @@ This example requires updating your template:
 </div>
 
 </nav>
-{{ $slot }}
 </body>
 </html>

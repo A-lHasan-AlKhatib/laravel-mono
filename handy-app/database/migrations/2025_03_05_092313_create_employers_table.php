@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Employer;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('job_listings', function (Blueprint $table) {
+        Schema::create('employers', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->timestamps();
-            $table->string('title');
-            $table->foreignIdFor(Employer::class);
-            $table->string('salary');
         });
     }
 
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('job_listing');
+        Schema::dropIfExists('employers');
     }
 };

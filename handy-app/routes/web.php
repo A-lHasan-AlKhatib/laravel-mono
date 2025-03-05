@@ -11,8 +11,8 @@ Route::get('/jobs', function () {
     return view('jobs', ['jobs' => Job::all()]);
 });
 
-Route::get('/jobs/{id}', function ($id) {
-    $job = Job::find($id);
+Route::get('/job/{id}', function ($id) {
+    $job = Job::query()->find($id);
     return view('job', ['job' => $job]);
 });
 

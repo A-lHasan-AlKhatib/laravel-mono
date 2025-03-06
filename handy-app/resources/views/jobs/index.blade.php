@@ -6,7 +6,7 @@
     <h2>Jobs list</h2>
     <div class="space-y-4">
         @foreach($jobs as $job)
-            <a href="/job/{{$job['id']}}" class="block px-4 py-6 border-grey-200 rounded-lg">
+            <a href="/jobs/{{$job['id']}}" class="block px-4 py-6 border-grey-200 rounded-lg">
                 <div class="font-bold text-sm text-blue-500">{{$job->employer->name}}</div>
                 <strong>{{$job['title']}}</strong> pays {{$job['salary']}} anualy.
             <br>

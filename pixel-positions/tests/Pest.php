@@ -41,6 +41,15 @@ expect()->extend('toBeOne', function () {
 |
 */
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+// This ensures migrations are run for all tests
+beforeEach(function () {
+    \Illuminate\Support\Facades\Artisan::call('migrate', ['--env' => 'testing']);
+});
+
+
+
 function something()
 {
     // ..

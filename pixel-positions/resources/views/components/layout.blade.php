@@ -21,12 +21,19 @@
             <a href="">Companies</a>
         </div>
         @auth
-            <div><a href="/jobs/create">post a job</a></div>
+            <div class="space-x-6 font-bold flex">
+                <a href="/jobs/create">post a job</a>
+                <form method="POST" action="/login">
+                    @CSRF
+                    @method('DELETE')
+                    <button>Log out</button>
+                </form>
+            </div>
         @endauth
         @guest
             <div class="space-x-6 font-bold">
-                <a href="">Sign Up</a>
-                <a href="">Log In</a>
+                <a href="/register">Sign Up</a>
+                <a href="/login">Log In</a>
             </div>
         @endguest
     </nav>

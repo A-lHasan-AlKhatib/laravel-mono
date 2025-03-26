@@ -13,8 +13,12 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
     // Blog
-    Route::post('/add/post', [PostController::class, 'addPost']);
+    Route::post('/post', [PostController::class, 'addPost']);
+    Route::put('/post/{post}', [PostController::class, 'editPost']);
+    Route::delete('/post/{post}', [PostController::class, 'deletePost']);
 });
 
+Route::get('/post', [PostController::class, 'getAllPosts']);
+Route::get('/post/{post}', [PostController::class, 'getPost']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);

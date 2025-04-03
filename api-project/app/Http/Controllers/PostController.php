@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
+use App\Http\Resources\PostResource;
 use App\Models\Post;
 use Illuminate\Http\JsonResponse;
 
@@ -43,9 +44,10 @@ class PostController extends Controller
         ]);
     }
 
-    public function getPost(Post $post): JsonResponse
+    public function getPost($post): PostResource
     {
-        return response()->json(['post' => $post]);
+        $post = Post::with('user', 'comments', 'likes')->where('id', $post)->first();
+        return PostResource::make($post);
     }
 
     public function deletePost(Post $post): JsonResponse
